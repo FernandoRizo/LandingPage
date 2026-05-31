@@ -7,12 +7,12 @@ import ProfilePhoto from "../common/ProfilePhoto";
 
 export default function Header({ activeTab, openTab, language, toggleLanguage, t, tabs }) {
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-[#F8FAFC]/85 backdrop-blur-xl">
+    <header className="fixed left-0 top-0 z-50 w-full border-b border-slate-200/70 bg-[#F8FAFC]/90 backdrop-blur-xl">
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4">
         <button
           type="button"
           onClick={() => openTab("perfil")}
-          className="flex items-center gap-3 text-left"
+          className="flex cursor-pointer items-center gap-3 text-left"
         >
           <ProfilePhoto size="sm" />
           <div>
@@ -29,7 +29,7 @@ export default function Header({ activeTab, openTab, language, toggleLanguage, t
               key={tab.id}
               type="button"
               onClick={() => openTab(tab.id)}
-              className={`rounded-2xl px-5 py-2.5 text-sm font-bold transition ${
+              className={`cursor-pointer rounded-2xl px-5 py-2.5 text-sm font-bold transition ${
                 activeTab === tab.id
                   ? "bg-emerald-600 text-white shadow-md"
                   : "text-slate-500 hover:text-slate-800"
@@ -44,7 +44,7 @@ export default function Header({ activeTab, openTab, language, toggleLanguage, t
           <LanguageToggle language={language} onToggle={toggleLanguage} t={t} />
           <ExternalAnchor
             href={profile.whatsapp}
-            className="hidden items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-emerald-700 md:inline-flex"
+            className="hidden cursor-pointer items-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-emerald-700 md:inline-flex"
             style={softShadow}
           >
             {t.headerContact} <MessageCircle className="h-4 w-4" />
@@ -58,7 +58,7 @@ export default function Header({ activeTab, openTab, language, toggleLanguage, t
             key={tab.id}
             type="button"
             onClick={() => openTab(tab.id)}
-            className={`shrink-0 rounded-2xl px-4 py-2 text-sm font-bold transition ${
+            className={`shrink-0 cursor-pointer rounded-2xl px-4 py-2 text-sm font-bold transition ${
               activeTab === tab.id ? "bg-emerald-600 text-white" : "bg-white text-slate-500"
             }`}
           >
