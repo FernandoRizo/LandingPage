@@ -5,6 +5,7 @@ import Header from "./components/layout/Header";
 import Hero from "./components/sections/Hero";
 import SectionTitle from "./components/ui/SectionTitle";
 import TabContent from "./components/tabs/TabContent";
+import FloatingWhatsApp from "./components/common/FloatingWhatsApp";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("perfil");
@@ -33,7 +34,7 @@ export default function App() {
   };
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#F8FAFC] font-['Inter'] text-slate-800">
+    <main className="min-h-screen overflow-x-hidden bg-[#F8FAFC] pt-[92px] font-['Inter'] text-slate-800 md:pt-[76px]">
       <Header
         activeTab={activeTab}
         openTab={openTab}
@@ -56,6 +57,8 @@ export default function App() {
 
         <TabContent activeTab={activeTab} t={t} language={language} />
       </section>
+
+      <FloatingWhatsApp t={t} />
 
       <footer className="border-t border-slate-200 px-5 py-8 text-center text-sm font-medium text-slate-500">
         <p>
