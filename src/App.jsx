@@ -13,8 +13,19 @@ export default function App() {
 
   const tabs = Object.entries(t.nav).map(([id, label]) => ({ id, label }));
 
-  const openTab = (tabId) => {
+  const openTab = (tabId, shouldScroll = true) => {
     setActiveTab(tabId);
+
+    if (shouldScroll) {
+      setTimeout(() => {
+        const section = document.getElementById("tab-section");
+
+        section?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 80);
+    }
   };
 
   const toggleLanguage = () => {
@@ -22,7 +33,7 @@ export default function App() {
   };
 
   return (
-    <main className="min-h-screen bg-[#F8FAFC] font-['Inter'] text-slate-800">
+    <main className="min-h-screen overflow-x-hidden bg-[#F8FAFC] font-['Inter'] text-slate-800">
       <Header
         activeTab={activeTab}
         openTab={openTab}
@@ -34,7 +45,7 @@ export default function App() {
 
       <Hero t={t} language={language} openTab={openTab} />
 
-      <section className="mx-auto max-w-7xl px-5 pb-16">
+      <section id="tab-section" className="mx-auto max-w-7xl scroll-mt-32 px-5 pb-16">
         <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <SectionTitle
             eyebrow={t.sectionEyebrow}
@@ -42,6 +53,7 @@ export default function App() {
             description={t.sectionDescription}
           />
         </div>
+
         <TabContent activeTab={activeTab} t={t} language={language} />
       </section>
 

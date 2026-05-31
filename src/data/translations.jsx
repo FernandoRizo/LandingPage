@@ -163,7 +163,7 @@ export const translations = {
     },
     contact: {
       eyebrow: "Hablemos",
-      title: "¿Quieres una landing, app o mejora digital?",
+      title: "Hablemos de tu próximo ptoyecto.",
       description:
         "Cuéntame qué negocio tienes, qué quieres mejorar y qué acción quieres que haga tu cliente: escribir por WhatsApp, pedir cotización, agendar una cita o conocer tus servicios.",
       whatsapp: "WhatsApp",
